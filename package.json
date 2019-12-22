@@ -1,0 +1,25 @@
+{
+  "name": "@hyurl/structured-clone",
+  "version": "0.1.0",
+  "description": "A cheap way to clone typed data for serialization.",
+  "main": "lib/index.js",
+  "types": "index.d.st",
+  "scripts": {
+    "test": "node example"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hyurl/structured-clone"
+  },
+  "keywords": [
+    "clone",
+    "structure",
+    "json"
+  ],
+  "author": "Ayon Lee <i@hyurl.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hyurl/structured-clone/issues"
+  },
+  "homepage": "https://github.com/hyurl/structured-clone#readme"
+}
