@@ -1,11 +1,12 @@
 {
   "name": "@hyurl/structured-clone",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A cheap way to clone typed data for serialization.",
   "main": "lib/index.js",
   "types": "index.d.st",
   "scripts": {
-    "test": "node example"
+    "test": "node example",
+    "prepublishOnly": "webpack"
   },
   "repository": {
     "type": "git",
