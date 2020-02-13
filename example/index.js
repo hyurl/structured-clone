@@ -1,4 +1,4 @@
-const { clone, declone } = require("..");
+const { compose, decompose } = require("..");
 const { format } = require("util");
 
 let data = {
@@ -27,12 +27,12 @@ let data = {
 };
 
 // Create copy and serialize
-let copy = clone(data);
+let copy = compose(data);
 let json = JSON.stringify(copy);
 
-// Parse serialized data and de-clone to the original form. 
+// Parse serialized data and decompose to the original form. 
 let _copy = JSON.parse(json);
-let _data = declone(_copy);
+let _data = decompose(_copy);
 
 // The two copy of data are literally the same.
 // (However with different object reference.)

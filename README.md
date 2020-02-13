@@ -2,35 +2,47 @@
 
 **A cheap way to clone typed data for serialization.**
 
-Using this module, the program can safely clone data from a object for
-serialization using JSON or HTML Structured Clone Algorithm, that means all
+Using this module, a program can safely clone data from an object for
+serialization by using JSON or HTML Structured Clone Algorithm, that means all
 functions, symbols, circular references, and any other elements that are not
-compatible with these algorithms will be removed.
+compatible with these algorithms will be auto-removed silently.
 
-Additionally, this module also transforms the clone object into a structured
-form when cloning for JSON serialization, so it could be used to serialize
-compound types like Date, RegExp, etc. The types that supported by HSCA (in
-Node.js term) are also supported by JSON when using this module.
+Additionally, this module also composes the clone object into a structured
+format for JSON serialization, so it could be used to serialize compound types
+like Date, RegExp, etc. The types that supported by HTML Structured Clone
+Algorithm (in Node.js term) are also supported by JSON along with this module.
 
 This module is designed primarily in order to safely clone data that can be
-transferred across processes or threads in Node.js, however, it works both in
-Node.js and in browsers.
+transferred across processes or threads in Node.js, however, it works in modern
+browsers as well.
 
 ## API
 
-- `clone(data: any, forHSCA = false)` Constructs a clone of the object that can be
-    serialized with JSON or HTML Structured Clone Algorith, if `forHSCA` is
-    omitted, this function returns a copy of data in a form that combined types
-    and values (only for compound types), so that they can be serialized and
-    transferred in JSON just like HSCA does.
-- `declone(data: any)` When constructing a clone for JSON, this function is used
-    to destruct the output data to it's original form. DON'T use this function
-    when setting `forHSCA` a true value for `clone()`.
+- `compose(data: any, forHTML = false)` Composes the data into a well-formated
+    object that can be serialized via JSON or HTML Structured Clone Algorithm.
+    If `forHTML` is omitted, this function returns a copy of data in a form that
+    combined types and values (only for compound types), so that they can be
+    serialized and transferred in JSON just like HTML Structured Clone Algorithm
+    does.
+    - Alias `clone()` is deprecated.
+
+- `decompose(data: any)` Decomposes the formated data back to its original form.
+    This function is not necessary when `forHTML` is set true for `compose()`.
+    - Alias `declone()` is deprecated.
+
+- `serialize(data: any): string` Equivalent to `JSON.stringify(compose(data))`.
+- `deserialize(json: string): any` Equivalent to `decompose(JSON.parse(json))`.
+
+- `createComposer(make: (type: string, value: any) => any): (data: any, forHTML?: boolean) => any`
+    This function could be used to create a customized composer function.
+
+- `createDecomposer(parse: (data: any) => { type: string, value: any }, checkSignature: (data: any) => boolean): (data: any) => any`
+    This function could be used to create a customized decomposer function.
 
 ## Example
 
 ```js
-import { clone, declone } from "@hyurl/structured-clone";
+import { compose, decompose } from "@hyurl/structured-clone";
 import { format } from "util";
 
 let data = {
@@ -59,12 +71,12 @@ let data = {
 };
 
 // Create copy and serialize
-let copy = clone(data);
+let copy = compose(data);
 let json = JSON.stringify(copy);
 
-// Parse serialized data and de-clone to the original form. 
+// Parse serialized data and decompose to the original form. 
 let _copy = JSON.parse(json);
-let _data = declone(_copy);
+let _data = decompose(_copy);
 
 // The two copy of data are literally the same.
 // (However with different object reference.)
