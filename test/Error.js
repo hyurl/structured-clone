@@ -21,7 +21,7 @@ describe("Error", () => {
 
     it("should compose for HTML Structured Clone Algorithm as expected", () => {
         let err = new Error("Something went wrong");
-        let result = compose(err, true);
+        let result = decompose(compose(err, true));
 
         assert.strictEqual(result.constructor, Error);
         assert.deepStrictEqual(pick(result, reservedProps), pick(err, reservedProps));
@@ -66,7 +66,7 @@ describe("Error", () => {
         let err = new Error("Something went wrong");
         err["foo"] = "Hello, World!";
         err["handle"] = () => { }; // unsupported and will be removed
-        let result = compose(err, true);
+        let result = decompose(compose(err, true));
 
         assert.strictEqual(result.constructor, Error)
         assert.deepStrictEqual(

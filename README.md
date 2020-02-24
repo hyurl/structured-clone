@@ -27,7 +27,6 @@ browsers as well.
     - Alias `clone()` is deprecated.
 
 - `decompose(data: any)` Decomposes the formated data back to its original form.
-    This function is not necessary when `forHTML` is set true for `compose()`.
     - Alias `declone()` is deprecated.
 
 - `serialize(data: any): string` Equivalent to `JSON.stringify(compose(data))`.
