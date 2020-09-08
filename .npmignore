@@ -1,2 +1,5 @@
 .vscode/
+example/
 node_modules/
+test/
+.*
