@@ -1,6 +1,6 @@
 {
   "name": "@hyurl/structured-clone",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "description": "A cheap way to clone typed data for serialization.",
   "main": "lib/index.js",
   "types": "index.d.st",
