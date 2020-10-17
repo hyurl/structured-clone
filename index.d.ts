@@ -44,7 +44,7 @@ export declare function clone(data: any, forHTML?: boolean): any;
 export declare function declone(data: any): any;
 
 export declare namespace utils {
-    declare function error2object(err: Error): Error & object;
-    declare function object2error(obj: Error & object): Error;
-    declare function walkToJSON(data: any): any;
+    function error2object(err: Error): Error & object;
+    function object2error(obj: Error & object): Error;
+    function walkToJSON(data: any): any;
 }
