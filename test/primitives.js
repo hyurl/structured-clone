@@ -1,4 +1,4 @@
-/** describe, it */
+/* global describe, it */
 const assert = require("assert");
 const { compose, decompose } = require("..");
 

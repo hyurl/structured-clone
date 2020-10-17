@@ -38,6 +38,14 @@ browsers as well.
 - `createDecomposer(parse: (data: any) => { type: string, value: any }, checkSignature: (data: any) => boolean): (data: any) => any`
     This function could be used to create a customized decomposer function.
 
+- `utils` Some utility functions used to process data:
+    - `error2object(err: Error): object` Transfers an error instance to a
+        standard object.
+    - `object2error(obj: object): Error` Transfers a standard object to an
+        error instance.
+    - `walkToJSON(data: any): any` Recursively calls `toJSON()` method in the
+        data and its children nodes until drain.
+
 ## Example
 
 ```js

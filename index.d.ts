@@ -27,7 +27,7 @@ export declare function createComposer(
 ): (data: any, forHTML?: boolean) => any;
 
 export declare function createDecomposer(
-    parse: (data: any) => { type: string, value: any },
+    parse: (data: any) => { type: string, value: any; },
     checkSignature: (data: any) => boolean
 ): (data: any) => any;
 
@@ -42,3 +42,9 @@ export declare function clone(data: any, forHTML?: boolean): any;
  * @deprecated
  */
 export declare function declone(data: any): any;
+
+export declare namespace utils {
+    declare function error2object(err: Error): Error & object;
+    declare function object2error(obj: Error & object): Error;
+    declare function walkToJSON(data: any): any;
+}
