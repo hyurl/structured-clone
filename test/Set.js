@@ -1,6 +1,6 @@
 /* global describe, it */
-const assert = require("assert");
-const { compose, decompose, serialize, deserialize } = require("..");
+import * as assert from "assert";
+import { compose, decompose, serialize, deserialize } from "../lib/index.js";
 
 describe("Set", () => {
     it("should compose and decompose as expected", () => {

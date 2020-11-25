@@ -1,5 +1,5 @@
 module.exports = {
-    mode: "production",
+    mode: "development",
     entry: "./lib/index.js",
     devtool: "source-map",
     target: "node",
@@ -8,7 +8,7 @@ module.exports = {
     },
     output: {
         path: __dirname + "/bundle",
-        filename: "structured-clone.min.js",
+        filename: "structured-clone.js",
         library: "StructuredClone",
         libraryTarget: "umd",
         globalObject: "this",

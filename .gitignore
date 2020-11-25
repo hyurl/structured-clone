@@ -1,3 +1,5 @@
 .vscode/
 bundle/
+dist/
 node_modules/
+*.tgz

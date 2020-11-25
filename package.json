@@ -1,11 +1,11 @@
 {
   "name": "@hyurl/structured-clone",
-  "version": "0.2.8",
+  "version": "0.3.0",
   "description": "A cheap way to clone typed data for serialization.",
-  "main": "lib/index.js",
-  "types": "index.d.st",
+  "main": "bundle/structured-clone.js",
+  "types": "index.d.ts",
   "scripts": {
-    "test": "mocha",
+    "test": "mocha -r esm test",
     "prepublishOnly": "webpack"
   },
   "repository": {
@@ -24,9 +24,9 @@
   },
   "homepage": "https://github.com/hyurl/structured-clone#readme",
   "devDependencies": {
+    "@hyurl/utils": "^0.2.8",
+    "esm": "^3.2.25",
     "mocha": "^7.2.0"
   },
-  "dependencies": {
-    "@hyurl/utils": "^0.2.8"
-  }
+  "dependencies": {}
 }

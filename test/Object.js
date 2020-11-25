@@ -1,7 +1,7 @@
 /* global describe, it */
-const assert = require("assert");
-const { compose, decompose, serialize, deserialize } = require("..");
-const pick = require("@hyurl/utils/pick").default;
+import * as assert from "assert";
+import { compose, decompose, serialize, deserialize } from "../lib/index.js";
+import pick from "@hyurl/utils/pick";
 
 describe("Object", () => {
     it("should compose and decompose as expected", () => {

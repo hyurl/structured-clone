@@ -1,5 +1,8 @@
 .vscode/
 example/
+lib/
 node_modules/
 test/
 .*
+*.tgz
+*.config.js

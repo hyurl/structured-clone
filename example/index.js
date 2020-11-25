@@ -1,5 +1,5 @@
-const { compose, decompose } = require("..");
-const { format } = require("util");
+import { compose, decompose } from "../lib/index.js";
+import { format } from "util";
 
 let data = {
     ok: true,
@@ -23,7 +23,7 @@ let data = {
     packet: new TextEncoder().encode("Hello, World!"), // TypedArray
     // Other Types like ArrayBuffer and ArrayBufferView are also supported,
     // however, Buffer are only supported by Node.js with JSON serialization,
-    // HSCA will transfer Buffer into Uint8Array automatically.
+    // setting `forHTML` will transfer Buffer into Uint8Array automatically.
 };
 
 // Create copy and serialize

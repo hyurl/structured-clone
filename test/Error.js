@@ -1,7 +1,8 @@
 /* global describe, it */
-const assert = require("assert");
-const { compose, decompose, serialize, deserialize } = require("..");
-const pick = require("@hyurl/utils/pick").default;
+import * as assert from "assert";
+import { compose, decompose, serialize, deserialize } from "../lib/index.js";
+import pick from "@hyurl/utils/pick";
+
 const reservedProps = ["name", "message", "stack"];
 
 describe("Error", () => {
@@ -15,7 +16,7 @@ describe("Error", () => {
             message: err.message,
             stack: err.stack
         }]);
-        assert.strictEqual(result.constructor, Error)
+        assert.strictEqual(result.constructor, Error);
         assert.deepStrictEqual(pick(result, reservedProps), pick(err, reservedProps));
     });
 
@@ -37,7 +38,7 @@ describe("Error", () => {
             message: err.message,
             stack: err.stack
         }]));
-        assert.strictEqual(result.constructor, Error)
+        assert.strictEqual(result.constructor, Error);
         assert.deepStrictEqual(pick(result, reservedProps), pick(err, reservedProps));
     });
 
@@ -54,12 +55,12 @@ describe("Error", () => {
             stack: err.stack,
             foo: err["foo"]
         }]);
-        assert.strictEqual(result.constructor, Error)
+        assert.strictEqual(result.constructor, Error);
         assert.deepStrictEqual(
             pick(result, [...reservedProps, "foo"]),
             pick(err, [...reservedProps, "foo"])
         );
-        assert(!("handle" in result));
+        assert.ok(!("handle" in result));
     });
 
     it("should keep accompanying data of supported types for HTML Structured Clone Algorithm", () => {
@@ -68,11 +69,11 @@ describe("Error", () => {
         err["handle"] = () => { }; // unsupported and will be removed
         let result = decompose(compose(err, true));
 
-        assert.strictEqual(result.constructor, Error)
+        assert.strictEqual(result.constructor, Error);
         assert.deepStrictEqual(
             pick(result, [...reservedProps, "foo"]),
             pick(err, [...reservedProps, "foo"])
         );
-        assert(!("handle" in result));
+        assert.ok(!("handle" in result));
     });
 });

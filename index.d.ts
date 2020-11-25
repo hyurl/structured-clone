@@ -1,12 +1,12 @@
 /**
- * Composes the data into a well-formated object that can be serialized via
+ * Composes the data into a well-formatted object that can be serialized via
  * JSON or HTML Structured Clone Algorithm.
  * @param forHTML For HTML Structured Clone Algorithm, by default it's for JSON.
  */
 export declare function compose(data: any, forHTML?: boolean): any;
 
 /**
- * Decomposes the formated data back to its original form.
+ * Decomposes the formatted data back to its original form.
  */
 export declare function decompose(data: any): any;
 
@@ -31,20 +31,9 @@ export declare function createDecomposer(
     checkSignature: (data: any) => boolean
 ): (data: any) => any;
 
-/**
- * @alias compose
- * @deprecated
- */
-export declare function clone(data: any, forHTML?: boolean): any;
-
-/**
- * @alias decompose
- * @deprecated
- */
-export declare function declone(data: any): any;
-
 export declare namespace utils {
     function error2object(err: Error): Error & object;
     function object2error(obj: Error & object): Error;
     function walkToJSON(data: any): any;
+    function getGlobal(prop?: string | symbol): any;
 }

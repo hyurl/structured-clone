@@ -1,7 +1,6 @@
-const { strictEqual } = require("assert");
 /* global describe, it */
-const assert = require("assert");
-const { utils } = require("..");
+import * as assert from "assert";
+import { utils } from "../lib/index.js";
 
 let err = new Error("something wen wrong");
 
@@ -47,9 +46,9 @@ describe("utils", () => {
         };
         let _err = utils.object2error(obj);
 
-        assert(_err instanceof Error);
+        assert.ok(_err instanceof Error);
         assert.strictEqual(_err.name, err.name);
-        assert; strictEqual(_err.message, err.message);
+        assert.strictEqual(_err.message, err.message);
         assert.strictEqual(_err.stack, err.stack);
     });
 
@@ -62,9 +61,9 @@ describe("utils", () => {
         };
         let _err = utils.object2error(obj);
 
-        assert(_err instanceof Error);
+        assert.ok(_err instanceof Error);
         assert.strictEqual(_err.name, err.name);
-        assert; strictEqual(_err.message, err.message);
+        assert.strictEqual(_err.message, err.message);
         assert.strictEqual(_err.stack, err.stack);
         assert.strictEqual(_err.foo, err.foo);
     });
@@ -77,9 +76,9 @@ describe("utils", () => {
         };
         let _err = utils.object2error(obj);
 
-        assert(_err instanceof TypeError);
+        assert.ok(_err instanceof TypeError);
         assert.strictEqual(_err.name, "TypeError");
-        assert; strictEqual(_err.message, err.message);
+        assert.strictEqual(_err.message, err.message);
         assert.strictEqual(_err.stack, err.stack);
     });
 

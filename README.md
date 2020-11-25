@@ -14,20 +14,18 @@ Algorithm (in Node.js term) are also supported by JSON along with this module.
 
 This module is designed primarily in order to safely clone data that can be
 transferred across processes or threads in Node.js, however, it works in modern
-browsers as well.
+browsers and [Deno](https://deno.land) as well.
 
 ## API
 
-- `compose(data: any, forHTML = false)` Composes the data into a well-formated
+- `compose(data: any, forHTML = false)` Composes the data into a well-formatted
     object that can be serialized via JSON or HTML Structured Clone Algorithm.
     If `forHTML` is omitted, this function returns a copy of data in a form that
     combined types and values (only for compound types), so that they can be
     serialized and transferred in JSON just like HTML Structured Clone Algorithm
     does.
-    - Alias `clone()` is deprecated.
 
-- `decompose(data: any)` Decomposes the formated data back to its original form.
-    - Alias `declone()` is deprecated.
+- `decompose(data: any)` Decomposes the formatted data back to its original form.
 
 - `serialize(data: any): string` Equivalent to `JSON.stringify(compose(data))`.
 - `deserialize(json: string): any` Equivalent to `decompose(JSON.parse(json))`.
@@ -74,7 +72,7 @@ let data = {
     packet: new TextEncoder().encode("Hello, World!"), // TypedArray
     // Other Types like ArrayBuffer and ArrayBufferView are also supported,
     // however, Buffer are only supported by Node.js with JSON serialization,
-    // HSCA will transfer Buffer into Uint8Array automatically.
+    // setting `forHTML` will transfer Buffer into Uint8Array automatically.
 };
 
 // Create copy and serialize
@@ -94,4 +92,10 @@ console.log(json);
 // {"ok":true,"greeting":"Hello, World!","times":100,"largeTimes":["[[BigInt]]",
 // "1000000000"],"maxTimes":["[[Number]]","Infinity"],"guests":["[[Map]]",
 // [[10000,{"name":"Mr. Wong","tel":["[[Number]]","NaN"] ...
+```
+
+## In Deno
+
+```ts
+import { compose, decompose } from "https://raw.githubusercontent.com/hyurl/structured-clone/master/lib/index.js"
 ```
