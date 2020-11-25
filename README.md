@@ -97,5 +97,5 @@ console.log(json);
 ## In Deno
 
 ```ts
-import { compose, decompose } from "https://raw.githubusercontent.com/hyurl/structured-clone/master/lib/index.js"
+import { compose, decompose } from "https://raw.githubusercontent.com/hyurl/structured-clone/master/lib/index.js";
 ```
