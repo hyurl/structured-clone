@@ -44,7 +44,7 @@ browsers and [Deno](https://deno.land) as well.
     - `walkToJSON(data: any): any` Recursively calls `toJSON()` method in the
         data and its children nodes until drain.
 
-## Example
+## Example (Node.js)
 
 ```js
 import { compose, decompose } from "@hyurl/structured-clone";
@@ -96,6 +96,16 @@ console.log(json);
 
 ## In Deno
 
+There are two ways to import this package in Deno:
+
+1. Via the Deno hosting service:
+
 ```ts
-import { compose, decompose } from "https://raw.githubusercontent.com/hyurl/structured-clone/master/lib/index.js";
+import { compose, decompose } from "https://deno.land/x/structured_clone@v0.3.0/lib/index.js";
+```
+
+2. Or directly from GitHub (recommended)
+
+```ts
+import { compose, decompose } from "https://github.com/hyurl/structured-clone/raw/master/lib/index.js";
 ```
