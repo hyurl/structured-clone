@@ -98,14 +98,14 @@ console.log(json);
 
 There are two ways to import this package in Deno:
 
-1. Via the Deno hosting service:
-
-```ts
-import { compose, decompose } from "https://deno.land/x/structured_clone@v0.3.0/lib/index.js";
-```
-
-2. Or directly from GitHub (recommended)
+1. Directly from GitHub (recommended)
 
 ```ts
 import { compose, decompose } from "https://github.com/hyurl/structured-clone/raw/master/lib/index.js";
+```
+
+2. Via the Deno hosting service:
+
+```ts
+import { compose, decompose } from "https://deno.land/x/structured_clone/lib/index.js";
 ```
